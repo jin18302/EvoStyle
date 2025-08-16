@@ -26,7 +26,6 @@ public class ProductDetail extends BaseEntity {
     private Brand brand;
 
     @Enumerated(EnumType.STRING)
-    @ColumnDefault("COMING_SOON")
     private ProductDetailStatus productDetailStatus = ProductDetailStatus.COMING_SOON;
 
     @Column(name = "product_stock")

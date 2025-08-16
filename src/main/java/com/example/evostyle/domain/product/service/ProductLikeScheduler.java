@@ -2,6 +2,7 @@ package com.example.evostyle.domain.product.service;
 
 import com.example.evostyle.domain.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.data.redis.core.Cursor;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -33,7 +34,7 @@ public class ProductLikeScheduler {
                 .build();
 
         try (Cursor<byte[]> cursor = redisTemplate.executeWithStickyConnection(
-                connection -> connection.scan(scanOptions))) {
+                connection -> connection.keyCommands().scan(scanOptions))) {
             while (cursor.hasNext()) {byteKeyList.add(new String(cursor.next()));}
         }
 

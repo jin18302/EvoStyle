@@ -59,6 +59,7 @@ jwt:
 
 kakao:
   token: ${kakao.accesstoken}
+  url: ${kakao.url}
 
 payment:
   toss:
